@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MaterialDesignTheme" parent="android:Theme.Material.Light">
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+
+        <!--Cool stuff-->
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_right</item>
+        <item name="android:windowExitTransition">@android:transition/slide_left</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!--   GridView Style  -->
+    <style name="GridViewTemplate">
+        <item name="android:layout_marginBottom">@dimen/gridView_marginBottom</item>
+        <item name="android:verticalSpacing">@dimen/verticalSpacing</item>
+        <item name="android:horizontalSpacing">@dimen/horizontalSpacing</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--   GridView Style  -->
+    <style name="NewsstandGridViewTemplate">
+        <item name="android:layout_marginBottom">@dimen/gridView_marginBottom</item>
+        <item name="android:verticalSpacing">@dimen/verticalSpacing</item>
+        <item name="android:horizontalSpacing">@dimen/horizontalSpacing</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--   NewsList CardView Style  -->
+    <style name="NewsListCardView">
+        <item name="android:elevation">@dimen/elevation</item>
+        <item name="android:layout_margin">@dimen/activity_margin</item>
+        <item name="android:background">@color/colorBlack</item>
+    </style>
+
+    <!-- TabLayout Style-->
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">#303F9F</item>
+        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+    </style>
+
+    <style name="MyCustomTextAppearance" parent="TextAppearance.AppCompat.Button">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--   News CardView Style  -->
+    <style name="NewsCardView">
+        <item name="android:elevation">10dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!--   News CardView Style  -->
+    <style name="NewsstandCardView">
+        <item name="android:elevation">10dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+</resources>

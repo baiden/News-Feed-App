@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Newsstand"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textSize="30dp"
+        android:textAppearance="?android:textAppearanceMedium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Browse by category"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:textSize="12sp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_below="@id/title_label"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@id/title_label"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/newsstand_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+    <include layout="@layout/bottombar_layout"/>
+</RelativeLayout>

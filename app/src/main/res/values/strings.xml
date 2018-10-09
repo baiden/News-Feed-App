@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">News Feed App</string>
+
+    <string name="news_headline">Headline for the news for \nusers to see and know</string>
+    <string name="name_of_place">NameOfPlace</string>
+    <string name="image_of_place">ImageOfPlace</string>
+    <string name="color_of_inactive_tab_text">#727272</string>
+    <string name="color_white">#ffffff</string>
+    <string name="color_blue">#3F51B5</string>
+    <string name="home">Home</string>
+    <string name="headline">Headline</string>
+    <string name="favourites">Favourites</string>
+    <string name="newsstands">Newsstand</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="KN_Park">Kakum National Park</string>
+    <string name="KN_Mausoleum">Kwame Nkrumah Mausoleum</string>
+    <string name="Elmina_Castle">Elmina Castle</string>
+    <string name="MN_Park">Mole National Park</string>
+    <string name="CapeCoast_Castle">Cape Coast Castle</string>
+    <string name="DN_Park">Digya National Park</string>
+    <string name="SH_Resource_Reserve">Shai Hills Resource Reserve</string>
+    <string name="Mountain_Afadjato">Mountain Afadjato</string>
+    <string name="Independence_Arc">Independence Arc</string>
+    <string name="NMuseum_ofGhana">National Museum of Ghana</string>
+    <string name="you_haven_t_saved_any_stories_to_read_later">You haven\'t saved any \nstories to read later</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="politics"><![CDATA[News & Politics]]></string>
+    <string name="science"><![CDATA[Science & technology]]></string>
+    <string name="sports">Sports</string>
+    <string name="food"><![CDATA[Food & drink]]></string>
+    <string name="health"><![CDATA[Health & fitness]]></string>
+</resources>

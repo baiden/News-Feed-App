@@ -1,0 +1,45 @@
+
+<resources>
+    <!-- Height of each list item -->
+    <dimen name="list_item_height">88dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+
+    <!--News List -->
+    <dimen name="elevation">4dp</dimen>
+    <dimen name="cardView_cornerRadius">8dp</dimen>
+
+    <dimen name="padding_albumTitleTop">8dp</dimen>
+    <dimen name="padding_albumTitleLeft">16dp</dimen>
+    <dimen name="padding_albumArtistLeft">16dp</dimen>
+
+    <!--ListView -->
+    <dimen name="listView_marginTop">100dp</dimen>
+    <dimen name="listView_marginBottom">50dp</dimen>
+
+    <!--GridView -->
+    <dimen name="gridView_marginBottom">50dp</dimen>
+    <dimen name="verticalSpacing">10dp</dimen>
+    <dimen name="horizontalSpacing">10dp</dimen>
+    <dimen name="columnWidth">90dp</dimen>
+    <dimen name="numColumns">2</dimen>
+
+
+    <!--Now Playing-->
+    <dimen name="nowPlaying_marginTop">50dp</dimen>
+    <dimen name="nowPlaying_marginLeft">20dp</dimen>
+    <dimen name="nowPlaying_marginRight">20dp</dimen>
+
+    <!--card view-->
+    <dimen name="card_view">200dp</dimen>
+    <dimen name="card_view_marginLeft">24dp</dimen>
+    <dimen name="card_view_text_view_marginBottom">10dp</dimen>
+    <dimen name="news_cardView_cornerRadius">16dp</dimen>
+
+    <!--List of Tour Places-->
+    <dimen name="tour_card_view_text_view_marginTop">8dp</dimen>
+    <dimen name="tour_card_view_text_view_marginBottom">50dp</dimen>
+
+</resources>
