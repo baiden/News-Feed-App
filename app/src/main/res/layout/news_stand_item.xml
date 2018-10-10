@@ -19,9 +19,10 @@
             <ImageView
                 android:id="@+id/imageOfNewsstand_image_view"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
+                android:background="@color/colorBlack"
                 android:elevation="@dimen/elevation"/>
 
 
@@ -31,9 +32,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="@dimen/tour_card_view_text_view_marginBottom"
-                android:textColor="@color/colorWhite"
                 android:text="Title"
+                android:textStyle="bold"
                 android:textSize="20sp"
+                android:textColor="@android:color/white"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
 
