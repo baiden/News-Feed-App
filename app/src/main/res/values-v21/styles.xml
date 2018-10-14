@@ -17,7 +17,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <!--   GridView Style  -->
+    <!--   All News GridView Style  -->
     <style name="GridViewTemplate">
         <item name="android:layout_marginBottom">@dimen/gridView_marginBottom</item>
         <item name="android:verticalSpacing">@dimen/verticalSpacing</item>
@@ -25,7 +25,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <!--   GridView Style  -->
+    <!--   Newsstand GridView Style  -->
     <style name="NewsstandGridViewTemplate">
         <item name="android:layout_marginBottom">@dimen/gridView_marginBottom</item>
         <item name="android:verticalSpacing">@dimen/verticalSpacing</item>

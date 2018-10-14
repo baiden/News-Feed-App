@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.example.android.newsfeedapp.Adapters.TourSideAttractionAdapter;
-import com.example.android.newsfeedapp.Data.PlaceData;
+import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
+import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.R;
 
 import java.util.ArrayList;
@@ -31,20 +31,20 @@ public class News360Fragment extends Fragment {
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Create a list of words
-        final ArrayList<PlaceData> tourSideAttractionData = new ArrayList<PlaceData>();
+        final ArrayList<NewsData> newsDataList = new ArrayList<NewsData>();
 
-        tourSideAttractionData.add(new PlaceData(R.string.KN_Mausoleum, R.drawable.abreast));
-        tourSideAttractionData.add(new PlaceData(R.string.Independence_Arc, R.drawable.abreast));
-        tourSideAttractionData.add(new PlaceData(R.string.CapeCoast_Castle, R.drawable.abreast));
-        tourSideAttractionData.add(new PlaceData(R.string.NMuseum_ofGhana, R.drawable.abreast));
-        tourSideAttractionData.add(new PlaceData(R.string.Elmina_Castle, R.drawable.abreast));
+        newsDataList.add(new NewsData(R.string.KN_Mausoleum, R.drawable.abreast));
+        newsDataList.add(new NewsData(R.string.Independence_Arc, R.drawable.abreast));
+        newsDataList.add(new NewsData(R.string.CapeCoast_Castle, R.drawable.abreast));
+        newsDataList.add(new NewsData(R.string.NMuseum_ofGhana, R.drawable.abreast));
+        newsDataList.add(new NewsData(R.string.Elmina_Castle, R.drawable.abreast));
 
-        //Puts the values into the TourSideAttractionAdapter class
-        TourSideAttractionAdapter tourSideAttractionAdapter = new TourSideAttractionAdapter(getActivity(), tourSideAttractionData);
-        GridView gridView = (GridView) rootView.findViewById(R.id.typeOfSideAttractionGridview);
+        //Puts the values into the MainNewsAdapter class
+        MainNewsAdapter mainNewsAdapter = new MainNewsAdapter(getActivity(), newsDataList);
+        GridView newsGridView = (GridView) rootView.findViewById(R.id.typeOfSideAttractionGridview);
 
-        //Displays the data in the TourSideAttractionAdapter
-        gridView.setAdapter(tourSideAttractionAdapter);
+        //Displays the data in the MainNewsAdapter
+        newsGridView.setAdapter(mainNewsAdapter);
 
         return rootView;
     }

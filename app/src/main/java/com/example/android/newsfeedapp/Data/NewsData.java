@@ -1,6 +1,6 @@
 package com.example.android.newsfeedapp.Data;
 
-public class PlaceData {
+public class NewsData {
     private int titleOfStory; //Stores the name of the place's string ID
     private int imageOfStoryResourceID; // Stores the side attraction's image ID
 
@@ -9,7 +9,7 @@ public class PlaceData {
      * @param inputTitleOfStory is the string ID of the name of the side attraction
      * @param inputImageOfStoryResourceID is the ID of the side attraction's image
      */
-    public PlaceData(int inputTitleOfStory, int inputImageOfStoryResourceID){
+    public NewsData(int inputTitleOfStory, int inputImageOfStoryResourceID){
         titleOfStory = inputTitleOfStory;
         imageOfStoryResourceID = inputImageOfStoryResourceID;
     }

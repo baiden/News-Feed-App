@@ -41,12 +41,12 @@ public class NewsstandFragment extends Fragment {
         newsStandDataList.add(new NewsstandData(R.string.food, R.drawable.abreast));
         newsStandDataList.add(new NewsstandData(R.string.health, R.drawable.abreast));
 
-        //Puts the values into the TourSideAttractionAdapter class
+        //Puts the values into the MainNewsAdapter class
         NewsStandAdapter newsStandAdapter = new NewsStandAdapter(getActivity(), newsStandDataList);
-        GridView gridView = (GridView) rootView.findViewById(R.id.newsStandGridview);
+        GridView newsstandGridView = (GridView) rootView.findViewById(R.id.newsStandGridview);
 
-        //Displays the data in the TourSideAttractionAdapter
-        gridView.setAdapter(newsStandAdapter);
+        //Displays the data in the MainNewsAdapter
+        newsstandGridView.setAdapter(newsStandAdapter);
 
         return rootView;
     }

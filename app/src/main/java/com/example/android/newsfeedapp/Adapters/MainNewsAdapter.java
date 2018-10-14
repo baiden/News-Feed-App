@@ -8,22 +8,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.newsfeedapp.Data.NewsstandData;
+import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.R;
 
 import java.util.ArrayList;
 
-public class NewsStandAdapter extends ArrayAdapter<NewsstandData> {
+public class MainNewsAdapter extends ArrayAdapter<NewsData> {
 
-    private static final String LOG_TAG = NewsStandAdapter.class.getSimpleName();
+    private static final String LOG_TAG = MainNewsAdapter.class.getSimpleName();
 
     /**
      *
      * @param context The current context. Used to inflate the layout file.
-     * @param pnewsstandData A List of NewsData objects to display in a list
+     * @param pnewsData A List of NewsData objects to display in a list
      */
-    public NewsStandAdapter(Activity context, ArrayList<NewsstandData> pnewsstandData) {
-        super(context, 0, pnewsstandData);
+    public MainNewsAdapter(Activity context, ArrayList<NewsData> pnewsData) {
+        super(context, 0, pnewsData);
     }
 
     /**
@@ -38,23 +38,24 @@ public class NewsStandAdapter extends ArrayAdapter<NewsstandData> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         // Check if the existing view is being reused, otherwise inflate the view
-        View newsstandListView = convertView;
-        if (newsstandListView == null) {
-            newsstandListView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.news_stand_item, parent, false);
+        View newsListView = convertView;
+        if (newsListView == null) {
+            newsListView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.news_item, parent, false);
         }
 
         // Get the NewsData object located at this position in the list
-        NewsstandData currentNewsStand = getItem(position);
+        NewsData currentNews = getItem(position);
 
-        TextView newsstandTitle_text_view = (TextView) newsstandListView.findViewById(R.id.titleOfNewsstand_text_view);
-        newsstandTitle_text_view.setText(currentNewsStand.getTitleOfCategory());
+        TextView news_title_text_view = (TextView) newsListView.findViewById(R.id.titleOfStory_text_view);
+        news_title_text_view.setText(currentNews.getTitleOfStory());
 
         // Find the ImageView in the place_detailed_information_item.xml layout with the ID imageOfPlace_image_view
-        ImageView newsstandImage_img = (ImageView) newsstandListView.findViewById(R.id.imageOfNewsstand_image_view);
-        newsstandImage_img.setImageResource(currentNewsStand.getImageOfCategoryResourceID());
+        ImageView news_image_view = (ImageView) newsListView.findViewById(R.id.imageOfStory_image_view);
+        news_image_view.setImageResource(currentNews.getImageOfStoryResourceID());
 
-        return newsstandListView;
+        return newsListView;
 
     }
 }
+

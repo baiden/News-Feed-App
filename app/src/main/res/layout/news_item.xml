@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/card_view"
         style="@style/NewsCardView"
-        app:cardCornerRadius="@dimen/news_cardView_cornerRadius">
+        app:cardCornerRadius="@dimen/news_cardView_cornerRadius"
+        app:cardElevation="@dimen/elevation"
+        >
 
         <RelativeLayout
             android:id="@+id/tourPlace_layout"
@@ -24,8 +26,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
-                android:background="@color/colorBlack"
-                android:elevation="@dimen/elevation"/>
+                android:background="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/titleOfStory_text_view"

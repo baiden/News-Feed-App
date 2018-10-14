@@ -1,316 +1,373 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MainActivity"
-    android:fillViewport="true">
+    tools:context=".Activities.MainActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginBottom="60dp">
 
-        <ImageView
-            android:id="@+id/abreast_image_view"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/abreast"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:elevation="@dimen/elevation"/>
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/activity_margin"
-            android:background="@drawable/news"
-            android:layout_below="@id/abreast_image_view"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_below="@id/abreast_image_view">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="News In Brief"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:textAppearance="?android:textAppearanceMedium"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Current top stories"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:textSize="12sp"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"/>
-
-            <HorizontalScrollView
+            <ImageView
+                android:id="@+id/abreast_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fillViewport="true">
+                android:src="@drawable/abreast"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:elevation="@dimen/elevation"/>
 
-                <LinearLayout
-                    android:layout_width="0dp"
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/activity_margin"
+                android:background="@drawable/news"
+                android:layout_below="@id/abreast_image_view"/>
+
+            <LinearLayout
+                android:id="@+id/main_news_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_below="@id/abreast_image_view">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:paddingBottom="16dp">
+                    android:text="News In Brief"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textAppearance="?android:textAppearanceMedium"/>
 
-                    <!--   Beginning of Business news   -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current top stories"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:scrollbars="none">
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center">
+                        android:orientation="horizontal"
+                        android:weightSum="1">
 
-                        <android.support.v7.widget.CardView
-                            android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            app:cardCornerRadius="4dp">
-
-                        </android.support.v7.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
+                        <!--   Beginning of Business news   -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:textSize="12sp"
-                            android:text="Business"
+                            android:orientation="vertical"
                             android:layout_marginLeft="16dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/news_headline"
-                            android:layout_marginLeft="16dp"/>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:text="Posted time"
-                                android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"/>
-
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:src="@drawable/ic_more_vert_black_24dp"/>
-                        </RelativeLayout>
-                    </LinearLayout>
-                    <!--   End of Business news   -->
-
-                    <!--   Beginning of Tech news   -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="8dp"
-                        android:gravity="center">
-
-                        <android.support.v7.widget.CardView
-                            android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            app:cardCornerRadius="4dp">
-
-                        </android.support.v7.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:textSize="12sp"
-                            android:text="Technology"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Headline for the news for users to\n see and know"
-                            android:layout_marginLeft="16dp"/>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:text="Posted time"
-                                android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"/>
-
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:src="@drawable/ic_more_vert_black_24dp"/>
-                        </RelativeLayout>
-                    </LinearLayout>
-                    <!--   End of Tech news   -->
-
-                    <!--   Beginning of Sports news   -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="8dp"
-                        android:gravity="center">
-
-                        <android.support.v7.widget.CardView
-                            android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            app:cardCornerRadius="4dp">
-
-                        </android.support.v7.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:textSize="12sp"
-                            android:text="Sports"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
                             android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="16dp"/>
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Headline for the news for users to\n see and know"
-                            android:layout_marginLeft="16dp"/>
+                            <android.support.v7.widget.CardView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:cardCornerRadius="4dp"
+                                app:cardElevation="@dimen/elevation">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerCrop"
+                                    android:background="@color/colorBlack"/>
+
+                            </android.support.v7.widget.CardView>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:text="Posted time"
                                 android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"/>
+                                android:textSize="12sp"
+                                android:text="Business"
+                                android:textColor="#3F51B5"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"/>
 
-
-                            <ImageView
-                                android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:src="@drawable/ic_more_vert_black_24dp"/>
-                        </RelativeLayout>
-                    </LinearLayout>
-                    <!--   End of Sports news   -->
+                                android:text="@string/news_headline"
+                                android:layout_marginLeft="16dp"/>
 
-                    <!--   Beginning of Political news   -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="8dp"
-                        android:gravity="center">
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp">
 
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:text="5 hours ago"
+                                    android:fontFamily="sans-serif-light"
+                                    android:textSize="12sp"/>
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/ic_more_vert_black_24dp"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <!--   End of Business news   -->
+
+                        <!--   Beginning of Tech news   -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:cardCornerRadius="4dp"
+                                app:cardElevation="@dimen/elevation">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerCrop"
+                                    android:background="@color/colorGreyBackground"/>
+
+                            </android.support.v7.widget.CardView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"
+                                android:textSize="12sp"
+                                android:text="Technology"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginBottom="8dp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Headline for the news for users to\n see and know"
+                                android:layout_marginLeft="16dp"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:text="30 minutes ago"
+                                    android:fontFamily="sans-serif-light"
+                                    android:textSize="12sp"/>
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/ic_more_vert_black_24dp"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <!--   End of Tech news   -->
+
+                        <!--   Beginning of Sports news   -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:cardCornerRadius="4dp"
+                                app:cardElevation="@dimen/elevation">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerCrop"
+                                    android:background="@color/colorPrimary"/>
+
+                            </android.support.v7.widget.CardView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"
+                                android:textSize="12sp"
+                                android:text="Sports"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="16dp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Headline for the news for users to\n see and know"
+                                android:layout_marginLeft="16dp"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:text="10 hours ago"
+                                    android:fontFamily="sans-serif-light"
+                                    android:textSize="12sp"/>
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/ic_more_vert_black_24dp"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <!--   End of Sports news   -->
+
+                        <!--   Beginning of Political news   -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:cardCornerRadius="4dp"
+                                app:cardElevation="@dimen/elevation">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerCrop"
+                                    android:background="#b71c1c"/>
+
+                            </android.support.v7.widget.CardView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"
+                                android:textSize="12sp"
+                                android:text="Politics"
+                                android:textColor="#3F51B5"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="16dp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Headline for the news for users to\n see and know"
+                                android:layout_marginLeft="16dp"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:text="5 minutes ago"
+                                    android:fontFamily="sans-serif-light"
+                                    android:textSize="12sp"/>
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/ic_more_vert_black_24dp"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <!--   End of Political news   -->
+
+                        <!--   Beginning of View more news  -->
                         <android.support.v7.widget.CardView
                             android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            app:cardCornerRadius="4dp">
-
-                        </android.support.v7.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:textSize="12sp"
-                            android:text="Politics"
+                            android:layout_height="250dp"
+                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
+                            android:layout_marginRight="16dp"
                             android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="16dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Headline for the news for users to\n see and know"
-                            android:layout_marginLeft="16dp"/>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:text="Posted time"
-                                android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"/>
-
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:src="@drawable/ic_more_vert_black_24dp"/>
-                        </RelativeLayout>
-                    </LinearLayout>
-                    <!--   End of Political news   -->
-
-                    <!--   Beginning of View more news  -->
-                    <android.support.v7.widget.CardView
-                        android:layout_width="200dp"
-                        android:layout_height="250dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center"
-                        app:cardCornerRadius="4dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="View All"
-                            android:layout_gravity="center"
                             android:gravity="center"
-                            android:textSize="18sp"/>
+                            app:cardCornerRadius="4dp"
+                            app:cardElevation="@dimen/elevation">
 
-                    </android.support.v7.widget.CardView>
-                    <!--   End of View more news   -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="View All"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textSize="18sp"/>
 
-                </LinearLayout>
-            </HorizontalScrollView>
-        </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                        <!--   End of View more news   -->
 
-        <include layout="@layout/bottombar_layout"/>
-    </RelativeLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
 
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/read_more"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/read_more_btn"
+                    android:textColor="#3F51B5"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:elevation="@dimen/elevation" />
+            </LinearLayout>
 
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/bottombar_layout"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

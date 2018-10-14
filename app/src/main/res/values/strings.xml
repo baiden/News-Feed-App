@@ -31,4 +31,5 @@
     <string name="sports">Sports</string>
     <string name="food"><![CDATA[Food & drink]]></string>
     <string name="health"><![CDATA[Health & fitness]]></string>
+    <string name="read_more">Read more</string>
 </resources>
