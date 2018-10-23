@@ -51,8 +51,8 @@ public class FavouritesActivity extends FragmentActivity {
                                 .playOn(findViewById(R.id.favourites));
                         break;
 
-                    case R.id.newsstand:
-                        Intent newsstandIntent = new Intent(FavouritesActivity.this, NewsstandActivity.class);
+                    case R.id.trending:
+                        Intent newsstandIntent = new Intent(FavouritesActivity.this, TrendingNewsActivity.class);
                         startActivity(newsstandIntent);
                         break;
                 }

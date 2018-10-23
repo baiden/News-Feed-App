@@ -3,25 +3,20 @@ package com.example.android.newsfeedapp.Fragments;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Loader;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
-import com.example.android.newsfeedapp.Adapters.NewsStandAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
-import com.example.android.newsfeedapp.Data.NewsstandData;
 import com.example.android.newsfeedapp.Loader.NewsLoader;
 import com.example.android.newsfeedapp.R;
 
@@ -31,7 +26,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsstandFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>> {
+public class TrendingNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>> {
 
     public static final String orderByParameter = "order-by";
     /**
@@ -66,7 +61,7 @@ public class NewsstandFragment extends Fragment implements LoaderManager.LoaderC
     private TextView mEmptyStateTextView;
     private View progressBar;
 
-    public NewsstandFragment() {
+    public TrendingNewsFragment() {
         // Required empty public constructor
     }
 
@@ -74,7 +69,7 @@ public class NewsstandFragment extends Fragment implements LoaderManager.LoaderC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.news_stand_list, container, false);
+        View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) getActivity().findViewById(R.id.list);

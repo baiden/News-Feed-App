@@ -69,8 +69,8 @@ public class HeadlinesActivity extends FragmentActivity {
                         startActivity(favourtieIntent);
                         break;
 
-                    case R.id.newsstand:
-                        Intent albumIntent = new Intent(HeadlinesActivity.this, NewsstandActivity.class);
+                    case R.id.trending:
+                        Intent albumIntent = new Intent(HeadlinesActivity.this, TrendingNewsActivity.class);
                         startActivity(albumIntent);
                         break;
                 }

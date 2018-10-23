@@ -32,7 +32,7 @@
         </activity>
 
         <!-- Newsstand activity-->
-        <activity android:name=".Activities.NewsstandActivity">
+        <activity android:name=".Activities.TrendingNewsActivity">
 
         </activity>
 

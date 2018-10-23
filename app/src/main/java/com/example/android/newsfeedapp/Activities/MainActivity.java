@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(favourtieIntent);
                         break;
 
-                    case R.id.newsstand:
-                        Intent albumIntent = new Intent(MainActivity.this, NewsstandActivity.class);
-                        startActivity(albumIntent);
+                    case R.id.trending:
+                        Intent trendingIntent = new Intent(MainActivity.this, TrendingNewsActivity.class);
+                        startActivity(trendingIntent);
                         break;
                 }
 

@@ -18,22 +18,6 @@ import java.util.List;
 
 public class MainNewsAdapter extends ArrayAdapter<NewsData> {
 
-    private static final String LOG_TAG = MainNewsAdapter.class.getSimpleName();
-
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
-    private static final String apiKeyparameter = "api-key";
-    private static final String apiKey = "3756d40a-c260-4772-a1e5-d28a1d10720e";
-    public static final String orderByParameter = "order-by";
-    private static final String queryParameter = "q";
-    private static String pageSize = "10";
-    private static final String author = "show-tags";
-    private static final String showFieldsParameter = "show-fields";
-    private static final String showFieldsValue = "thumbnail";
-    private static final String nameOfAuthor = "contributor";
-    private static final int NEWS_REQUEST_ID = 1;
-
-
-
     /**
      *
      * @param context The current context. Used to inflate the layout file.

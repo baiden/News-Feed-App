@@ -10,7 +10,7 @@
     <string name="home">Home</string>
     <string name="headline">Headline</string>
     <string name="favourites">Favourites</string>
-    <string name="newsstands">Newsstand</string>
+    <string name="trending">Trending</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -18,7 +18,7 @@ import com.example.android.newsfeedapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsstandActivity extends FragmentActivity {
+public class TrendingNewsActivity extends FragmentActivity {
     @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu;
 
     @Override
@@ -27,10 +27,10 @@ public class NewsstandActivity extends FragmentActivity {
         setContentView(R.layout.app_content);
 
         // Find the view pager that will allow the user to swipe between fragments
-        ViewPager viewPager = (ViewPager) findViewById(R.id.newsstand_viewpager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.trendingNews_viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), NewsstandActivity.this);
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), TrendingNewsActivity.this);
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
@@ -47,24 +47,24 @@ public class NewsstandActivity extends FragmentActivity {
 
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Intent homeIntent = new Intent(NewsstandActivity.this, MainActivity.class);
+                        Intent homeIntent = new Intent(TrendingNewsActivity.this, MainActivity.class);
                         startActivity(homeIntent);
                         break;
 
                     case R.id.headline:
-                        Intent headlineIntent = new Intent(NewsstandActivity.this, HeadlinesActivity.class);
+                        Intent headlineIntent = new Intent(TrendingNewsActivity.this, HeadlinesActivity.class);
                         startActivity(headlineIntent);
                         break;
 
                     case R.id.favourites:
-                        Intent favouritesIntent = new Intent(NewsstandActivity.this, FavouritesActivity.class);
+                        Intent favouritesIntent = new Intent(TrendingNewsActivity.this, FavouritesActivity.class);
                         startActivity(favouritesIntent);
                         break;
 
-                    case R.id.newsstand:
+                    case R.id.trending:
                         YoYo.with(Techniques.Tada)
                                 .duration(700)
-                                .playOn(findViewById(R.id.newsstand));
+                                .playOn(findViewById(R.id.trending));
                         break;
                 }
 

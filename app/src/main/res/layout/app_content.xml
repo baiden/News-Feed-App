@@ -8,7 +8,7 @@
         android:id="@+id/title_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Newsstand"
+        android:text="Trending"
         android:textStyle="bold"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Browse by category"
+        android:text="Served as it's hot"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:textSize="12sp"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -33,7 +33,7 @@
         android:layout_marginTop="@dimen/activity_vertical_margin">
 
         <android.support.v4.view.ViewPager
-            android:id="@+id/newsstand_viewpager"
+            android:id="@+id/trendingNews_viewpager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>

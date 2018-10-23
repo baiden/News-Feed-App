@@ -18,8 +18,8 @@
         android:title="@string/favourites"/>
 
     <item
-        android:id="@+id/newsstand"
+        android:id="@+id/trending"
         android:icon="@drawable/newsstand"
-        android:title="@string/newsstands"/>
+        android:title="@string/trending"/>
 
 </menu>
