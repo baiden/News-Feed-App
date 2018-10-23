@@ -1,7 +1,7 @@
 package com.example.android.newsfeedapp.Fragments;
 
+
 import android.app.LoaderManager;
-import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Loader;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BusinessNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>>{
+public class MusicNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>>{
 
     /** URL for earthquake data from the Guardian dataset */
     private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
@@ -63,8 +64,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
 
     List<NewsData> newsFromNewsLoader;
 
-
-    public BusinessNewsFragment() {
+    public MusicNewsFragment() {
         // Required empty public constructor
     }
 
@@ -99,6 +99,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
         // so the list can be populated in the user interface
         newsListView.setAdapter(mAdapter);
 
+
         if (isConnected){
             // Get a reference to the LoaderManager, in order to interact with loaders.
             loaderManager = getLoaderManager();
@@ -130,7 +131,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
         builder.appendQueryParameter(queryParameter, query)
                 .appendQueryParameter(orderByParameter, orderBy)
-                .appendQueryParameter("section","business")
+                .appendQueryParameter("section","entertainment")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter("page-size", "30")
                 .appendQueryParameter(author, nameOfAuthor)
@@ -161,4 +162,5 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
+
 }

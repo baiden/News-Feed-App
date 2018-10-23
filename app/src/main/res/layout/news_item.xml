@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
@@ -13,10 +13,10 @@
         style="@style/NewsCardView"
         app:cardCornerRadius="@dimen/news_cardView_cornerRadius"
         app:cardElevation="@dimen/elevation"
-        >
+        android:layout_marginBottom="8dp">
 
         <RelativeLayout
-            android:id="@+id/tourPlace_layout"
+            android:id="@+id/newsImage_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -29,20 +29,96 @@
                 android:background="@color/colorBlack"/>
 
             <TextView
-                android:id="@+id/titleOfStory_text_view"
+                android:id="@+id/section"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="@dimen/tour_card_view_text_view_marginBottom"
-                android:ellipsize="end"
-                android:maxLines="4"
-                android:text="Title"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:text="#Section"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_alignParentBottom="true"/>
+                android:textSize="14sp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_alignParentRight="true"
+                android:background="#e53935"
+                android:layout_alignParentBottom="true"
+                android:elevation="@dimen/elevation"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/titleOfStory_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/news_headline"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:maxLines="4"
+            android:textAppearance="?android:textAppearanceMedium"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                tools:text="Mar 6, 2010" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                tools:text="3:00 PM" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more_vert_black_24dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="end"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
+            android:text="Author"
+            android:fontFamily="sans-serif-light"
+            android:textSize="12sp"
+            android:layout_below="@id/titleOfStory_text_view"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -16,17 +16,13 @@
 package com.example.android.newsfeedapp.Adapters;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
 
 import com.example.android.newsfeedapp.Fragments.BusinessNewsFragment;
-import com.example.android.newsfeedapp.Fragments.EntertainmentNewsFragment;
-import com.example.android.newsfeedapp.Fragments.News360Fragment;
+import com.example.android.newsfeedapp.Fragments.MusicNewsFragment;
+import com.example.android.newsfeedapp.Fragments.WorldNewsFragment;
 import com.example.android.newsfeedapp.Fragments.PoliticalNewsFragment;
 import com.example.android.newsfeedapp.Fragments.SportsNewsFragment;
 import com.example.android.newsfeedapp.Fragments.TechnologicalNewsFragment;
@@ -40,7 +36,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 6;
 
     //Stores the titles of the strings in an array
-    private String tabTitles[] = new String[] { "News 360", "Politics", "Sports", "Business", "Technology", "Entertainment"};
+    private String tabTitles[] = new String[] { "World News", "Politics", "Sports", "Business", "Technology", "Music"};
     private Context context;
 
     /**
@@ -57,7 +53,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new News360Fragment();
+            return new WorldNewsFragment();
         } else if (position == 1){
             return new PoliticalNewsFragment();
         } else if (position == 2){
@@ -67,9 +63,9 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         } else if (position == 4){
             return new TechnologicalNewsFragment();
         } else if (position == 5){
-            return new EntertainmentNewsFragment();
+            return new MusicNewsFragment();
         } else {
-            return new News360Fragment();
+            return new WorldNewsFragment();
         }
     }
 
