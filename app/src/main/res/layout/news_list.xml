@@ -11,6 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
+    <!-- Empty view is only visible when the list has no items. -->
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceMedium" />
 
     <ListView
         android:id="@+id/list"
@@ -20,11 +27,4 @@
         android:dividerHeight="0dp"
         android:orientation="vertical" />
 
-    <!-- Empty view is only visible when the list has no items. -->
-    <TextView
-        android:id="@+id/empty_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textAppearance="?android:textAppearanceMedium" />
 </RelativeLayout>

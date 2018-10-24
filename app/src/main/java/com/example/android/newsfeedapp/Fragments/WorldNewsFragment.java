@@ -1,23 +1,28 @@
 package com.example.android.newsfeedapp.Fragments;
 
 
-import android.app.LoaderManager;
+
 import android.content.Context;
-import android.content.Loader;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
@@ -52,6 +57,8 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
 
+    ListView newsListView;
+
     /**
      * Constant value for the earthquake loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
@@ -75,7 +82,7 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView newsListView = (ListView) getActivity().findViewById(R.id.list);
+        newsListView = (ListView) getActivity().findViewById(R.id.list);
 
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -113,10 +120,20 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Find the current News that was clicked on
+                NewsData currentEarthquake = mAdapter.getItem(position);
+                Toast.makeText(getContext(), "I did it!", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         return rootView;
     }
 
+    @NonNull
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
         // Create a new loader for the given URL
@@ -126,10 +143,9 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
         String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
 
         String queryValue = sharedPrefs.getString(getString(R.string.settings_country_key), getString(R.string.settings_country_default));
-        String query = queryValue.concat(" AND Sports");
 
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, query)
+        builder.appendQueryParameter(queryParameter, queryValue)
                 .appendQueryParameter(orderByParameter, orderBy)
                 .appendQueryParameter("section","world")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
@@ -141,7 +157,9 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
     }
 
     @Override
-    public void onLoadFinished(Loader<List<NewsData>> loader, List<NewsData> data) {
+    public void onLoadFinished(@NonNull Loader<List<NewsData>> loader, List<NewsData> data) {
+        progressBar.setVisibility(View.GONE);
+
         // Set empty state text to display "No earthquakes found."
         mEmptyStateTextView.setText(R.string.no_news);
 
@@ -153,8 +171,6 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
         if (data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
         }
-
-
     }
 
     @Override

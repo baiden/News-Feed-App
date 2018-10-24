@@ -1,13 +1,14 @@
 package com.example.android.newsfeedapp.Fragments;
 
-import android.app.LoaderManager;
 import android.content.Context;
-import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -129,7 +130,9 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     }
 
     @Override
-    public void onLoadFinished(Loader<List<NewsData>> loader, List<NewsData> data) {
+    public void onLoadFinished(@NonNull Loader<List<NewsData>> loader, List<NewsData> data) {
+        progressBar.setVisibility(View.GONE);
+
         // Set empty state text to display "No earthquakes found."
         mEmptyStateTextView.setText(R.string.no_news);
 
@@ -141,8 +144,6 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         if (data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
         }
-
-
     }
 
     @Override
