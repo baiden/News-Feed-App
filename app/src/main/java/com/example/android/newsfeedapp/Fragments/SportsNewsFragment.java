@@ -2,6 +2,7 @@ package com.example.android.newsfeedapp.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -115,6 +117,21 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
+
+        newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                NewsData newsData = mAdapter.getItem(position);
+
+                Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
+
+                startActivity(intent);
+
+                return true;
+            }
+        });
 
         return rootView;
     }
