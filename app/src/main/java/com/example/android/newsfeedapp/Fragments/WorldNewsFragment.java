@@ -82,7 +82,7 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
-        newsListView = (ListView) getActivity().findViewById(R.id.list);
+        newsListView = (ListView) rootView.findViewById(R.id.list);
 
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -94,10 +94,10 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
         isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        mEmptyStateTextView = (TextView) getActivity().findViewById(R.id.empty_view);
+        mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
-        progressBar = (View) getActivity().findViewById(R.id.progress_bar);
+        progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MusicNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>>{
+public class EntertainmentNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>>{
 
     /** URL for earthquake data from the Guardian dataset */
     private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
@@ -64,7 +64,7 @@ public class MusicNewsFragment extends Fragment implements LoaderManager.LoaderC
 
     List<NewsData> newsFromNewsLoader;
 
-    public MusicNewsFragment() {
+    public EntertainmentNewsFragment() {
         // Required empty public constructor
     }
 
@@ -75,7 +75,7 @@ public class MusicNewsFragment extends Fragment implements LoaderManager.LoaderC
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView newsListView = (ListView) getActivity().findViewById(R.id.list);
+        ListView newsListView = (ListView) rootView.findViewById(R.id.list);
 
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -87,10 +87,10 @@ public class MusicNewsFragment extends Fragment implements LoaderManager.LoaderC
         isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        mEmptyStateTextView = (TextView) getActivity().findViewById(R.id.empty_view);
+        mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
-        progressBar = (View) getActivity().findViewById(R.id.progress_bar);
+        progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
@@ -126,12 +126,11 @@ public class MusicNewsFragment extends Fragment implements LoaderManager.LoaderC
         String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
 
         String queryValue = sharedPrefs.getString(getString(R.string.settings_country_key), getString(R.string.settings_country_default));
-        String query = queryValue.concat(" AND Sports");
 
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, query)
+        builder.appendQueryParameter(queryParameter, queryValue)
                 .appendQueryParameter(orderByParameter, orderBy)
-                .appendQueryParameter("section","entertainment")
+                .appendQueryParameter("section","film|tv-and-radio|music|media|books")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter("page-size", "30")
                 .appendQueryParameter(author, nameOfAuthor)

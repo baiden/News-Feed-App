@@ -36,6 +36,11 @@
 
         </activity>
 
+        <!-- Business activity-->
+        <activity android:name=".Activities.BusinessNewsActivity">
+
+        </activity>
+
     </application>
 
 </manifest>

@@ -60,7 +60,7 @@ public class MainNewsAdapter extends ArrayAdapter<NewsData> {
         String mystring = "#" + currentNews.getSectionOfStory();
         sectionView.setText(mystring);
 
-        // Updates section text view
+        // Updates author of news story
         TextView authorView = (TextView) newsListView.findViewById(R.id.authorName);
         List<String> author = currentNews.getReporterName();
         if(!author.isEmpty()){

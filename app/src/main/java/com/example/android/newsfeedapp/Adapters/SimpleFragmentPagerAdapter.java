@@ -21,7 +21,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.android.newsfeedapp.Fragments.BusinessNewsFragment;
-import com.example.android.newsfeedapp.Fragments.MusicNewsFragment;
+import com.example.android.newsfeedapp.Fragments.EntertainmentNewsFragment;
 import com.example.android.newsfeedapp.Fragments.WorldNewsFragment;
 import com.example.android.newsfeedapp.Fragments.PoliticalNewsFragment;
 import com.example.android.newsfeedapp.Fragments.SportsNewsFragment;
@@ -36,7 +36,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 6;
 
     //Stores the titles of the strings in an array
-    private String tabTitles[] = new String[] { "World News", "Politics", "Sports", "Business", "Technology", "Music"};
+    private String tabTitles[] = new String[] { "World News", "Politics", "Sports", "Business", "Technology", "Entertainment"};
     private Context context;
 
     /**
@@ -63,7 +63,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         } else if (position == 4){
             return new TechnologicalNewsFragment();
         } else if (position == 5){
-            return new MusicNewsFragment();
+            return new EntertainmentNewsFragment();
         } else {
             return new WorldNewsFragment();
         }

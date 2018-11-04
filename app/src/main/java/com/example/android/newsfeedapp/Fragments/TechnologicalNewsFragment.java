@@ -76,7 +76,7 @@ public class TechnologicalNewsFragment extends Fragment implements LoaderManager
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView newsListView = (ListView) getActivity().findViewById(R.id.list);
+        ListView newsListView = (ListView) rootView.findViewById(R.id.list);
 
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -88,10 +88,10 @@ public class TechnologicalNewsFragment extends Fragment implements LoaderManager
         isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        mEmptyStateTextView = (TextView) getActivity().findViewById(R.id.empty_view);
+        mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
-        progressBar = (View) getActivity().findViewById(R.id.progress_bar);
+        progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
@@ -127,12 +127,11 @@ public class TechnologicalNewsFragment extends Fragment implements LoaderManager
         String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
 
         String queryValue = sharedPrefs.getString(getString(R.string.settings_country_key), getString(R.string.settings_country_default));
-        String query = queryValue.concat(" AND Sports");
 
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, query)
+        builder.appendQueryParameter(queryParameter, queryValue)
                 .appendQueryParameter(orderByParameter, orderBy)
-                .appendQueryParameter("section","sport")
+                .appendQueryParameter("section","technology")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter("page-size", "30")
                 .appendQueryParameter(author, nameOfAuthor)

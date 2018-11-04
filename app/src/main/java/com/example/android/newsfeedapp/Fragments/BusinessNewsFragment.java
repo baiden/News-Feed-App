@@ -3,6 +3,7 @@ package com.example.android.newsfeedapp.Fragments;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -17,9 +18,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.android.newsfeedapp.Activities.BusinessNewsActivity;
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.Loader.NewsLoader;
@@ -77,7 +80,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView newsListView = (ListView) getActivity().findViewById(R.id.list);
+        final ListView newsListView = (ListView) rootView.findViewById(R.id.list);
 
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -89,10 +92,10 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
         isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        mEmptyStateTextView = (TextView) getActivity().findViewById(R.id.empty_view);
+        mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
-        progressBar = (View) getActivity().findViewById(R.id.progress_bar);
+        progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
@@ -113,6 +116,16 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
             progressBar.setVisibility(View.GONE);
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
+                NewsData newsData = (NewsData) newsListView.getItemAtPosition(position);
+                openMainNews.putExtra(DetailedBusinessNewsFragment.NEWS_INFO, newsData);
+                startActivity(openMainNews);
+            }
+        });
 
 
         return rootView;
