@@ -57,7 +57,7 @@ public class DetailedBusinessNewsFragment extends Fragment {
         // Updates body of news story
         TextView body_of_news_story = (TextView) rootView.findViewById(R.id.bodyOfStory);
 
-        displayDetailedNews(news_title_text_view, news_image_view, sectionView, authorView, dateView, timeView, body_of_news_story);
+        displayDetailedNews(news_title_text_view, news_image_view, sectionView, authorView, body_of_news_story);
 
         ListView newsListView = (ListView) rootView.findViewById(R.id.list);
         // Create a new adapter that takes an empty list of earthquakes as input
@@ -69,7 +69,7 @@ public class DetailedBusinessNewsFragment extends Fragment {
         return rootView;
     }
 
-    private void displayDetailedNews(TextView news_title_text_view, ImageView news_image_view, TextView sectionView, TextView authorView, TextView dateView, TextView timeView, TextView body_of_news_story) {
+    private void displayDetailedNews(TextView news_title_text_view, ImageView news_image_view, TextView sectionView, TextView authorView, TextView body_of_news_story) {
         news_title_text_view.setText(newsData.getTitleOfStory());
 
         Picasso.get().load(newsData.getImageOfStoryResource()).into(news_image_view);
@@ -93,11 +93,11 @@ public class DetailedBusinessNewsFragment extends Fragment {
             authorView.setVisibility(View.GONE);
         }
 
-        String originalDateTime = newsData.getDateTimeOfStory();
-        String Date = originalDateTime.substring(0,10);
-        dateView.setText(Date);
-        String Time = originalDateTime.substring(11,16);
-        timeView.setText(Time);
+//        String originalDateTime = newsData.getDateTimeOfStory();
+//        String Date = originalDateTime.substring(0,10);
+//        dateView.setText(Date);
+//        String Time = originalDateTime.substring(11,16);
+//        timeView.setText(Time);
 
         body_of_news_story.setText(newsData.getBodyOfStory());
     }

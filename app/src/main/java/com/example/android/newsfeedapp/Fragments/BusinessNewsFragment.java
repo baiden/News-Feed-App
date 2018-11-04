@@ -121,7 +121,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
-                NewsData newsData = (NewsData) newsListView.getItemAtPosition(position);
+                NewsData newsData = mAdapter.getItem(position);
                 openMainNews.putExtra(DetailedBusinessNewsFragment.NEWS_INFO, newsData);
                 startActivity(openMainNews);
             }
