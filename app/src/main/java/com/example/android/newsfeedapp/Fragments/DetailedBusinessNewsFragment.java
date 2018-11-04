@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
+import com.example.android.newsfeedapp.Adapters.DetailedNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.R;
 import com.squareup.picasso.Picasso;
@@ -22,7 +22,7 @@ import java.util.List;
 public class DetailedBusinessNewsFragment extends Fragment {
     public static final String NEWS_INFO = "com.example.android.newsfeedapp.Data.NewsData";
     private NewsData newsData;
-    private MainNewsAdapter mAdapter;
+    private DetailedNewsAdapter mAdapter;
 
     public DetailedBusinessNewsFragment(){
         // Required empty public constructor
@@ -31,7 +31,7 @@ public class DetailedBusinessNewsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main_news, container, false);
+        View rootView = inflater.inflate(R.layout.news_list, container, false);
 
 
 
@@ -61,7 +61,7 @@ public class DetailedBusinessNewsFragment extends Fragment {
 
         ListView newsListView = (ListView) rootView.findViewById(R.id.list);
         // Create a new adapter that takes an empty list of earthquakes as input
-        mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
+        mAdapter = new DetailedNewsAdapter(getContext(), new ArrayList<NewsData>());
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         newsListView.setAdapter(mAdapter);

@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
+import com.example.android.newsfeedapp.Adapters.TrendingNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.Loader.NewsLoader;
 import com.example.android.newsfeedapp.R;
@@ -55,7 +56,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     /**
      * Adapter for the list of earthquakes
      */
-    private MainNewsAdapter mAdapter;
+    private TrendingNewsAdapter mAdapter;
     /**
      * TextView that is displayed when the list is empty
      */
@@ -91,7 +92,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
         // Create a new adapter that takes an empty list of earthquakes as input
-        mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
+        mAdapter = new TrendingNewsAdapter(getContext(), new ArrayList<NewsData>());
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
