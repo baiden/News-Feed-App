@@ -17,9 +17,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
-import com.example.android.newsfeedapp.Adapters.TrendingNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.Loader.NewsLoader;
 import com.example.android.newsfeedapp.R;
@@ -58,7 +58,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     /**
      * Adapter for the list of earthquakes
      */
-    private TrendingNewsAdapter mAdapter;
+    private MainNewsAdapter mAdapter;
     /**
      * TextView that is displayed when the list is empty
      */
@@ -94,7 +94,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
         // Create a new adapter that takes an empty list of earthquakes as input
-        mAdapter = new TrendingNewsAdapter(getContext(), new ArrayList<NewsData>());
+        mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
@@ -112,6 +112,15 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             progressBar.setVisibility(View.GONE);
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Find the current News that was clicked on
+                NewsData currentEarthquake = mAdapter.getItem(position);
+                Toast.makeText(getContext(), "I did it!", Toast.LENGTH_LONG).show();
+            }
+        });
 
         newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -135,7 +144,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
 
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, "most viewed news")
+        builder.appendQueryParameter(queryParameter, "trending AND World")
                 .appendQueryParameter(orderByParameter, "newest")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter(showMostViewed, "true")

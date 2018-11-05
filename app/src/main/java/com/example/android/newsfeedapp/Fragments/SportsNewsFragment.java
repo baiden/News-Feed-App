@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
@@ -117,6 +118,14 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Find the current News that was clicked on
+                NewsData currentEarthquake = mAdapter.getItem(position);
+                Toast.makeText(getContext(), "I did it!", Toast.LENGTH_LONG).show();
+            }
+        });
 
         newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

@@ -17,6 +17,7 @@ public class NewsData implements Parcelable {
     private List<String> reporterName;
     private String bodyOfStory;
 
+    public NewsData(){}
     /**
      * Creates a constructor of the Tour Places Data Class
      *

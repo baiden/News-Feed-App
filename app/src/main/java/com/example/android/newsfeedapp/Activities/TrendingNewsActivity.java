@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.android.newsfeedapp.Adapters.SimpleFragmentPagerAdapter;
+import com.example.android.newsfeedapp.Fragments.TrendingNewsFragment;
 import com.example.android.newsfeedapp.Helpers.BottomNavigationViewHelper;
 import com.example.android.newsfeedapp.R;
 
@@ -26,14 +27,37 @@ public class TrendingNewsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_content);
 
-        // Find the view pager that will allow the user to swipe between fragments
-        ViewPager viewPager = (ViewPager) findViewById(R.id.trendingNews_viewpager);
+//        // Find the view pager that will allow the user to swipe between fragments
+//        ViewPager viewPager = (ViewPager) findViewById(R.id.trendingNews_viewpager);
+//
+//        // Create an adapter that knows which fragment should be shown on each page
+//        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), TrendingNewsActivity.this);
+//
+//        // Set the adapter onto the view pager
+//        viewPager.setAdapter(adapter);
 
-        // Create an adapter that knows which fragment should be shown on each page
-        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), TrendingNewsActivity.this);
+        //Check that the activity is using the layout version with
+        // the fragment_container FrameLayout
+        if (findViewById(R.id.fragment_container) != null) {
 
-        // Set the adapter onto the view pager
-        viewPager.setAdapter(adapter);
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            // Create a new Fragment to be placed in the activity layout
+            TrendingNewsFragment firstFragment = new TrendingNewsFragment();
+
+            // In case this activity was started with special instructions from an
+            // Intent, pass the Intent's extras to the fragment as arguments
+            firstFragment.setArguments(getIntent().getExtras());
+
+            // Add the fragment to the 'fragment_container' FrameLayout
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, firstFragment).commit();
+        }
 
         ButterKnife.bind(this);
 

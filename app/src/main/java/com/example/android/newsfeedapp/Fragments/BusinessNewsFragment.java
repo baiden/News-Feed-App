@@ -50,7 +50,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
     private static final int NEWS_REQUEST_ID = 1;
 
 
-    /** Adapter for the list of earthquakes */
+    /** Adapter for the list of news stories */
     private MainNewsAdapter mAdapter;
 
     /** TextView that is displayed when the list is empty */
@@ -97,7 +97,7 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
 
         progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
-        // Create a new adapter that takes an empty list of earthquakes as input
+        // Create a new adapter that takes an empty list of news as input
         mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
 
         // Set the adapter on the {@link ListView}

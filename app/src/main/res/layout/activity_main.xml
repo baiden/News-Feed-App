@@ -88,6 +88,7 @@
                                 app:cardElevation="@dimen/elevation">
 
                                 <ImageView
+                                    android:id="@+id/business_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
@@ -97,6 +98,7 @@
                             </android.support.v7.widget.CardView>
 
                             <TextView
+                                android:id="@+id/business_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
@@ -108,6 +110,7 @@
                                 android:layout_marginBottom="8dp"/>
 
                             <TextView
+                                android:id="@+id/business_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/news_headline"
@@ -151,6 +154,7 @@
                                 app:cardElevation="@dimen/elevation">
 
                                 <ImageView
+                                    android:id="@+id/tech_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
@@ -160,6 +164,7 @@
                             </android.support.v7.widget.CardView>
 
                             <TextView
+                                android:id="@+id/tech_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
@@ -171,6 +176,7 @@
                                 android:layout_marginBottom="8dp"/>
 
                             <TextView
+                                android:id="@+id/tech_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Headline for the news for users to\n see and know"
@@ -214,6 +220,7 @@
                                 app:cardElevation="@dimen/elevation">
 
                                 <ImageView
+                                    android:id="@+id/sports_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
@@ -223,6 +230,7 @@
                             </android.support.v7.widget.CardView>
 
                             <TextView
+                                android:id="@+id/sports_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
@@ -234,6 +242,7 @@
                                 android:layout_marginLeft="16dp"/>
 
                             <TextView
+                                android:id="@+id/sports_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Headline for the news for users to\n see and know"
@@ -277,6 +286,7 @@
                                 app:cardElevation="@dimen/elevation">
 
                                 <ImageView
+                                    android:id="@+id/political_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
@@ -286,6 +296,7 @@
                             </android.support.v7.widget.CardView>
 
                             <TextView
+                                android:id="@+id/political_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
@@ -297,6 +308,7 @@
                                 android:layout_marginLeft="16dp"/>
 
                             <TextView
+                                android:id="@+id/political_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Headline for the news for users to\n see and know"
@@ -338,8 +350,9 @@
                             app:cardElevation="@dimen/elevation">
 
                             <TextView
+                                android:id="@+id/all_news"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:text="View All"
                                 android:layout_gravity="center"
                                 android:gravity="center"
@@ -352,6 +365,7 @@
                 </HorizontalScrollView>
 
                 <Button
+                    android:id="@+id/read_more_news"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="@string/read_more"
