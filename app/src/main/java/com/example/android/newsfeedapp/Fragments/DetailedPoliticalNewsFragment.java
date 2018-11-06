@@ -1,14 +1,13 @@
 package com.example.android.newsfeedapp.Fragments;
 
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.newsfeedapp.Adapters.DetailedNewsAdapter;
@@ -16,21 +15,24 @@ import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class DetailedBusinessNewsFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class DetailedPoliticalNewsFragment extends Fragment {
     public static final String NEWS_INFO = "com.example.android.newsfeedapp.Data.NewsData";
     private NewsData newsData;
     private DetailedNewsAdapter mAdapter;
 
-    public DetailedBusinessNewsFragment(){
+    public DetailedPoliticalNewsFragment() {
         // Required empty public constructor
     }
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_news, container, false);
 
 
@@ -107,4 +109,5 @@ public class DetailedBusinessNewsFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         newsData = intent.getParcelableExtra(NEWS_INFO);
     }
+
 }

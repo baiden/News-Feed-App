@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.newsfeedapp.Adapters.DetailedNewsAdapter;
@@ -16,15 +15,14 @@ import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class DetailedBusinessNewsFragment extends Fragment {
+public class DetailedTrendingNewsFragment extends Fragment {
     public static final String NEWS_INFO = "com.example.android.newsfeedapp.Data.NewsData";
     private NewsData newsData;
     private DetailedNewsAdapter mAdapter;
 
-    public DetailedBusinessNewsFragment(){
+    public DetailedTrendingNewsFragment(){
         // Required empty public constructor
     }
 

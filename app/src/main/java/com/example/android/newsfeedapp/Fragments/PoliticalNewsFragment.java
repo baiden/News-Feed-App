@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.newsfeedapp.Activities.BusinessNewsActivity;
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.Loader.NewsLoader;
@@ -120,9 +121,10 @@ public class PoliticalNewsFragment extends Fragment implements LoaderManager.Loa
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Find the current News that was clicked on
-                NewsData currentEarthquake = mAdapter.getItem(position);
-                Toast.makeText(getContext(), "I did it!", Toast.LENGTH_LONG).show();
+                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
+                NewsData newsData = mAdapter.getItem(position);
+                openMainNews.putExtra(DetailedPoliticalNewsFragment.NEWS_INFO, newsData);
+                startActivity(openMainNews);
             }
         });
 

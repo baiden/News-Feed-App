@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageOfStory_image_view"
+                android:id="@+id/mimageOfStory_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -29,7 +29,7 @@
                 android:background="@color/colorBlack"/>
 
             <TextView
-                android:id="@+id/section"
+                android:id="@+id/msection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
@@ -55,7 +55,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/titleOfStory_text_view"
+            android:id="@+id/mtitleOfStory_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -109,24 +109,27 @@
         android:layout_marginBottom="@dimen/activity_vertical_margin">
 
         <TextView
-            android:id="@+id/authorName"
-            android:layout_width="wrap_content"
+            android:id="@+id/mauthorName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_alignParentLeft="true"
             android:text="Author"
             android:fontFamily="sans-serif-light"
             android:textSize="12sp"
             android:layout_below="@id/titleOfStory_text_view"/>
 
-        <TextView
-            android:id="@+id/bodyOfStory"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxLines="4"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue. Egestas pretium aenean pharetra magna ac placerat vestibulum. Accumsan lacus vel facilisis volutpat est velit egestas. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc sed blandit libero volutpat sed. Ornare lectus sit amet est placerat in egestas erat imperdiet. Porttitor eget dolor morbi non arcu risus. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Vel turpis nunc eget lorem dolor sed viverra ipsum. Id diam maecenas ultricies mi. Egestas tellus rutrum tellus pellentesque. In pellentesque massa placerat duis ultricies lacus sed turpis. In nibh mauris cursus mattis molestie a. Interdum posuere lorem ipsum dolor sit amet consectetur.
+            android:fillViewport="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/bodyOfStory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="12"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi scelerisque eu ultrices vitae auctor eu augue. Egestas pretium aenean pharetra magna ac placerat vestibulum. Accumsan lacus vel facilisis volutpat est velit egestas. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc sed blandit libero volutpat sed. Ornare lectus sit amet est placerat in egestas erat imperdiet. Porttitor eget dolor morbi non arcu risus. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Vel turpis nunc eget lorem dolor sed viverra ipsum. Id diam maecenas ultricies mi. Egestas tellus rutrum tellus pellentesque. In pellentesque massa placerat duis ultricies lacus sed turpis. In nibh mauris cursus mattis molestie a. Interdum posuere lorem ipsum dolor sit amet consectetur.
 
 Integer vitae justo eget magna fermentum. Elit eget gravida cum sociis natoque penatibus. Justo donec enim diam vulputate ut. Rhoncus mattis rhoncus urna neque viverra. Tellus elementum sagittis vitae et leo duis ut diam. Rhoncus dolor purus non enim praesent. Egestas pretium aenean pharetra magna ac placerat vestibulum. Non arcu risus quis varius. Duis at consectetur lorem donec massa sapien faucibus. Ullamcorper eget nulla facilisi etiam dignissim diam. Viverra mauris in aliquam sem fringilla ut.
 
@@ -145,6 +148,7 @@ Vel orci porta non pulvinar neque laoreet suspendisse interdum. Tincidunt lobort
 Habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Habitasse platea dictumst vestibulum rhoncus est. Leo duis ut diam quam nulla porttitor massa id. Ac tortor dignissim convallis aenean et tortor at risus viverra. Placerat vestibulum lectus mauris ultrices eros in cursus turpis massa. Sollicitudin ac orci phasellus egestas tellus. Est ultricies integer quis auctor elit. Neque aliquam vestibulum morbi blandit cursus risus at ultrices mi. Imperdiet massa tincidunt nunc pulvinar sapien et. Eu turpis egestas pretium aenean. Volutpat commodo sed egestas egestas fringilla phasellus. Sed risus pretium quam vulputate dignissim suspendisse in est ante. Vestibulum morbi blandit cursus risus.
 
 Nisl tincidunt eget nullam non. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Felis bibendum ut tristique et egestas. Sit amet commodo nulla facilisi nullam vehicula ipsum a arcu. Erat imperdiet sed euismod nisi. Auctor elit sed vulputate mi sit amet mauris. In nisl nisi scelerisque eu ultrices. Pellentesque diam volutpat commodo sed egestas. Augue eget arcu dictum varius duis at consectetur. Aliquam faucibus purus in massa tempor nec feugiat."/>
+        </ScrollView>
 
     </LinearLayout>
 

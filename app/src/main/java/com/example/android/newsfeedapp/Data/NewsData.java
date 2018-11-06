@@ -37,8 +37,8 @@ public class NewsData implements Parcelable {
     public NewsData(Parcel source) {
         titleOfStory = source.readString();
         imageOfStoryResource = source.readString();
-        dateTimeOfStory = source.readString();
         sectionOfStory = source.readString();
+        dateTimeOfStory = source.readString();
         reporterName = new ArrayList<>();
         bodyOfStory = source.readString();
 
