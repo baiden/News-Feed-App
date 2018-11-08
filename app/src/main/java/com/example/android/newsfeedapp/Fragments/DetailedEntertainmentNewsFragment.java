@@ -1,6 +1,5 @@
 package com.example.android.newsfeedapp.Fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.newsfeedapp.Adapters.DetailedNewsAdapter;
 import com.example.android.newsfeedapp.Data.NewsData;
 import com.example.android.newsfeedapp.R;
 import com.squareup.picasso.Picasso;
@@ -23,7 +21,6 @@ import java.util.List;
 public class DetailedEntertainmentNewsFragment extends Fragment {
     public static final String NEWS_INFO = "com.example.android.newsfeedapp.Data.NewsData";
     private NewsData newsData;
-    private DetailedNewsAdapter mAdapter;
 
     public DetailedEntertainmentNewsFragment() {
         // Required empty public constructor
@@ -31,11 +28,8 @@ public class DetailedEntertainmentNewsFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_news, container, false);
-
-
 
         //Receives the data that was passed through the intent
         readDisplayedDetailedNews();
@@ -61,24 +55,21 @@ public class DetailedEntertainmentNewsFragment extends Fragment {
 
         displayDetailedNews(news_title_text_view, news_image_view, sectionView, authorView, body_of_news_story);
 
-//        ListView newsListView = (ListView) rootView.findViewById(R.id.list);
-//        // Create a new adapter that takes an empty list of earthquakes as input
-//        mAdapter = new DetailedNewsAdapter(getContext(), new ArrayList<NewsData>());
-//        // Set the adapter on the {@link ListView}
-//        // so the list can be populated in the user interface
-//        newsListView.setAdapter(mAdapter);
-
         return rootView;
     }
 
     private void displayDetailedNews(TextView news_title_text_view, ImageView news_image_view, TextView sectionView, TextView authorView, TextView body_of_news_story) {
+        // Gets title of news
         news_title_text_view.setText(newsData.getTitleOfStory());
 
+        // Gets image of news
         Picasso.get().load(newsData.getImageOfStoryResource()).into(news_image_view);
 
+        // Gets section of news
         String mystring = "#" + newsData.getSectionOfStory();
         sectionView.setText(mystring);
 
+        // Gets author of news
         List<String> author = newsData.getReporterName();
         if(!author.isEmpty()){
             StringBuilder output = new StringBuilder();
@@ -95,12 +86,7 @@ public class DetailedEntertainmentNewsFragment extends Fragment {
             authorView.setVisibility(View.GONE);
         }
 
-//        String originalDateTime = newsData.getDateTimeOfStory();
-//        String Date = originalDateTime.substring(0,10);
-//        dateView.setText(Date);
-//        String Time = originalDateTime.substring(11,16);
-//        timeView.setText(Time);
-
+        // Gets body of news
         body_of_news_story.setText(newsData.getBodyOfStory());
     }
 
@@ -109,5 +95,4 @@ public class DetailedEntertainmentNewsFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         newsData = intent.getParcelableExtra(NEWS_INFO);
     }
-
 }

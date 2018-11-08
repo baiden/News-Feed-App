@@ -1,6 +1,5 @@
 package com.example.android.newsfeedapp.Fragments;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -35,7 +34,7 @@ import java.util.List;
  */
 public class SportsNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>>{
 
-    /** URL for earthquake data from the Guardian dataset */
+    /** URL for News data from the Guardian dataset */
     private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
     private static final String apiKeyparameter = "api-key";
     private static final String apiKey = "78e94902-d37d-4c1e-9f5c-35b58b767f09";
@@ -47,14 +46,14 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
     private static final String showFieldsValue = "thumbnail";
     private static final String nameOfAuthor = "contributor";
 
-    /** Adapter for the list of earthquakes */
+    /** Adapter for the list of news stories */
     private MainNewsAdapter mAdapter;
 
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
 
     /**
-     * Constant value for the earthquake loader ID. We can choose any integer.
+     * Constant value for the news loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
      */
     private static final int NEWS_LOADER_ID = 1;
@@ -62,8 +61,6 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
     LoaderManager loaderManager;
     boolean isConnected;
     private View progressBar;
-
-    List<NewsData> newsFromNewsLoader;
 
 
     public SportsNewsFragment() {
@@ -79,6 +76,7 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) rootView.findViewById(R.id.list);
 
+        /* *********** Checks if there is an internet connection ******/
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -101,7 +99,6 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
         // so the list can be populated in the user interface
         newsListView.setAdapter(mAdapter);
 
-
         if (isConnected){
             // Get a reference to the LoaderManager, in order to interact with loaders.
             loaderManager = getLoaderManager();
@@ -115,23 +112,25 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
+        // Creates an onItemClickListen for the ListView
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 
+                // Gets the url of the story
                 Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
 
+                // Creates an implicit intent to open the news story in a browser
                 Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
-
                 startActivity(intent);
             }
         });
 
+        // Creates an onItemLongClickListen for the ListView
         newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
                 NewsData newsData = mAdapter.getItem(position);
 
                 Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
@@ -148,6 +147,7 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
+
         // Create a new loader for the given URL
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
         builder.appendQueryParameter(queryParameter, getString(R.string.country_default))
@@ -165,13 +165,13 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
     public void onLoadFinished(@NonNull Loader<List<NewsData>> loader, List<NewsData> data) {
         progressBar.setVisibility(View.GONE);
 
-        // Set empty state text to display "No earthquakes found."
+        // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
         // Clear the adapter of previous earthquake data
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link NewsData}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
@@ -183,5 +183,4 @@ public class SportsNewsFragment extends Fragment implements LoaderManager.Loader
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
-
 }

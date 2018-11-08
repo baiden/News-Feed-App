@@ -22,9 +22,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity{
-    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu;
-    @BindView(R.id.all_news) TextView viewAllNews;
-    @BindView(R.id.read_more_news) Button readMoreNews;
+    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu; //Bottom Navigation View Menu
+    @BindView(R.id.all_news) TextView viewAllNews; // View All TextView
+    @BindView(R.id.read_more_news) Button readMoreNews; // READ MORE Button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +74,14 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    // Sets onClick listener on View All TextView
     @OnClick(R.id.all_news)
     public void viewNews(View view) {
         Intent intent = new Intent(MainActivity.this, HeadlinesActivity.class);
         startActivity(intent);
     }
 
+    // Sets onClick listener on READ MORE Button
     @OnClick(R.id.read_more_news)
     public void submit(View view) {
         Intent intent = new Intent(MainActivity.this, HeadlinesActivity.class);

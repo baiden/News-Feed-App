@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FavouritesActivity extends FragmentActivity {
-    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu;
+    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu; //Bottom Navigation View Menu
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

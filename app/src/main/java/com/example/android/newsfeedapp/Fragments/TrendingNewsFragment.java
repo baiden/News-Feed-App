@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.newsfeedapp.Activities.BusinessNewsActivity;
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
@@ -33,37 +32,32 @@ import java.util.List;
  */
 public class TrendingNewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<NewsData>> {
 
-    public static final String orderByParameter = "order-by";
-    /**
-     * URL for earthquake data from the Guardian dataset
-     */
+    /** URL for News data from the Guardian dataset */
     private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search";
     private static final String apiKeyparameter = "api-key";
     private static final String apiKey = "78e94902-d37d-4c1e-9f5c-35b58b767f09";
+    public static final String orderByParameter = "order-by";
     private static final String queryParameter = "q";
+    private static String pageSize = "10";
     private static final String author = "show-tags";
     private static final String showFieldsParameter = "show-fields";
     private static final String showFieldsValue = "thumbnail";
     private static final String nameOfAuthor = "contributor";
     private static final String showMostViewed = "show-most-viewed";
+    /** Adapter for the list of earthquakes */
+    private MainNewsAdapter mAdapter;
+
+    /** TextView that is displayed when the list is empty */
+    private TextView mEmptyStateTextView;
 
     /**
      * Constant value for the earthquake loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
      */
     private static final int NEWS_LOADER_ID = 1;
-    private static String pageSize = "10";
+
     LoaderManager loaderManager;
     boolean isConnected;
-    List<NewsData> newsFromNewsLoader;
-    /**
-     * Adapter for the list of earthquakes
-     */
-    private MainNewsAdapter mAdapter;
-    /**
-     * TextView that is displayed when the list is empty
-     */
-    private TextView mEmptyStateTextView;
     private View progressBar;
 
     public TrendingNewsFragment() {
@@ -79,6 +73,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) rootView.findViewById(R.id.list);
 
+        /* *********** Checks if there is an internet connection ******/
         ConnectivityManager cm =
                 (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -94,7 +89,7 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
         progressBar = (View) rootView.findViewById(R.id.progress_bar);
 
-        // Create a new adapter that takes an empty list of earthquakes as input
+        // Create a new adapter that takes an empty list of news as input
         mAdapter = new MainNewsAdapter(getContext(), new ArrayList<NewsData>());
 
         // Set the adapter on the {@link ListView}
@@ -114,23 +109,25 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
+        // Creates an onItemClickListen for the ListView
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 
+                // Gets the url of the story
                 Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
 
+                // Creates an implicit intent to open the news story in a browser
                 Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
-
                 startActivity(intent);
             }
         });
 
+        // Creates an onItemLongClickListen for the ListView
         newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
                 NewsData newsData = mAdapter.getItem(position);
 
                 Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
@@ -147,8 +144,8 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
-        // Create a new loader for the given URL
 
+        // Create a new loader for the given URL
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
         builder.appendQueryParameter(queryParameter, getString(R.string.trending_news))
                 .appendQueryParameter(orderByParameter, getString(R.string.newest))
@@ -165,13 +162,13 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
     public void onLoadFinished(@NonNull Loader<List<NewsData>> loader, List<NewsData> data) {
         progressBar.setVisibility(View.GONE);
 
-        // Set empty state text to display "No earthquakes found."
+        // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
         // Clear the adapter of previous earthquake data
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link NewsData}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
@@ -183,5 +180,4 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
-
 }

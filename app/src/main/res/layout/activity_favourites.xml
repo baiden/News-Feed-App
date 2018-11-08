@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_margin"
-        android:text="Saved stories"
+        android:text="@string/saved_stories"
         android:textAppearance="?android:textAppearance"
         android:textSize="18sp"/>
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/you_haven_t_saved_any_stories_to_read_later"
         android:layout_marginLeft="30dp"
-        android:textSize="12sp"
+        android:textSize="@dimen/minimal_text_size"
         android:layout_marginTop="90dp"/>
 
     <android.support.v7.widget.CardView

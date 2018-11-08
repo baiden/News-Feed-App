@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/bottomNavigationView"
             app:menu="@menu/bottombar_items"
-            android:background="#fff">
+            android:background="@color/colorWhite">
 
         </android.support.design.widget.BottomNavigationView>
     </android.support.design.widget.CoordinatorLayout>

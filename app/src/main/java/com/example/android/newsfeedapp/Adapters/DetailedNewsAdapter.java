@@ -19,7 +19,6 @@ import java.util.List;
 
 public class DetailedNewsAdapter extends ArrayAdapter<NewsData> {
 
-
     /**
      *
      * @param context The current context. Used to inflate the layout file.
@@ -29,6 +28,14 @@ public class DetailedNewsAdapter extends ArrayAdapter<NewsData> {
         super(context, 0, pnewsData);
     }
 
+    /**
+     *
+     * @param position The position in the list of data that should be displayed in the
+     *                 list item view.
+     * @param convertView The recycled view to populate.
+     * @param parent The parent ViewGroup that is used for inflation.
+     * @return The View for the position in the AdapterView.
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -42,6 +49,7 @@ public class DetailedNewsAdapter extends ArrayAdapter<NewsData> {
         // Get the NewsData object located at this position in the list
         NewsData newsData = getItem(position);
 
+        // Updates title of news story
         TextView news_title_text_view = (TextView) newsListView.findViewById(R.id.titleOfStory_text_view);
         news_title_text_view.setText(newsData.getTitleOfStory());
 

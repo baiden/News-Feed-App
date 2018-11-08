@@ -41,5 +41,6 @@
     <!--List of Tour Places-->
     <dimen name="tour_card_view_text_view_marginTop">8dp</dimen>
     <dimen name="tour_card_view_text_view_marginBottom">50dp</dimen>
+    <dimen name="minimal_text_size">12sp</dimen>
 
 </resources>

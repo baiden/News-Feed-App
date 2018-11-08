@@ -33,7 +33,7 @@ import com.example.android.newsfeedapp.Fragments.TechnologicalNewsFragment;
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     //Determines the number of tabs to be created
-    final int PAGE_COUNT = 6;
+    private final int PAGE_COUNT = 6;
 
     //Stores the titles of the strings in an array
     private String tabTitles[] = new String[] { "World News", "Politics", "Sports", "Business", "Technology", "Entertainment"};

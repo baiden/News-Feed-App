@@ -24,7 +24,8 @@
                 android:src="@drawable/abreast"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:elevation="@dimen/elevation"/>
+                android:elevation="@dimen/elevation"
+                android:contentDescription="@string/abreast_logo" />
 
             <ImageView
                 android:layout_width="50dp"
@@ -45,7 +46,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="News In Brief"
+                    android:text="@string/news_in_brief"
                     android:textStyle="bold"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:textAppearance="?android:textAppearanceMedium"/>
@@ -53,9 +54,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Current top stories"
+                    android:text="@string/current_top_stories"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/minimal_text_size"
                     android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
                 <HorizontalScrollView
@@ -70,64 +71,70 @@
                         android:orientation="horizontal"
                         android:weightSum="1">
 
-                        <!--   Beginning of Business news   -->
+                        <!--   Beginning of Business News   -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginLeft="16dp"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
                             android:layout_marginTop="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginBottom="8dp"
                             android:gravity="center">
 
+                            <!--Business News CardView-->
                             <android.support.v7.widget.CardView
                                 android:layout_width="200dp"
                                 android:layout_height="200dp"
                                 app:cardCornerRadius="4dp"
                                 app:cardElevation="@dimen/elevation">
 
+                                <!--Business News ImageView-->
                                 <ImageView
                                     android:id="@+id/business_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
                                     android:scaleType="centerCrop"
-                                    android:background="@color/colorBlack"/>
+                                    android:background="@color/colorBlack"
+                                    android:contentDescription="@string/business_news_image" />
 
                             </android.support.v7.widget.CardView>
 
+                            <!--Business News Section-->
                             <TextView
                                 android:id="@+id/business_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"
-                                android:text="Business"
-                                android:textColor="#3F51B5"
-                                android:layout_marginLeft="16dp"
+                                android:textSize="@dimen/minimal_text_size"
+                                android:text="@string/business_headline_section"
+                                android:textColor="@color/colorBlue"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="8dp"/>
 
+                            <!--Business News Headline-->
                             <TextView
                                 android:id="@+id/business_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/news_headline"
-                                android:layout_marginLeft="16dp"/>
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="16dp">
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
+                                <!--Business News Posted Time-->
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:text="5 hours ago"
+                                    android:text="@string/_5_hours_ago"
                                     android:fontFamily="sans-serif-light"
-                                    android:textSize="12sp"/>
+                                    android:textSize="@dimen/minimal_text_size"/>
 
 
                                 <ImageView
@@ -137,9 +144,9 @@
                                     android:src="@drawable/ic_more_vert_black_24dp"/>
                             </RelativeLayout>
                         </LinearLayout>
-                        <!--   End of Business news   -->
+                        <!--   End of Business News   -->
 
-                        <!--   Beginning of Tech news   -->
+                        <!--   Beginning of Tech News   -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -147,53 +154,59 @@
                             android:layout_margin="8dp"
                             android:gravity="center">
 
+                            <!--Tech News CardView-->
                             <android.support.v7.widget.CardView
                                 android:layout_width="200dp"
                                 android:layout_height="200dp"
                                 app:cardCornerRadius="4dp"
                                 app:cardElevation="@dimen/elevation">
 
+                                <!--Tech News ImageView-->
                                 <ImageView
                                     android:id="@+id/tech_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
                                     android:scaleType="centerCrop"
-                                    android:background="@color/colorGreyBackground"/>
+                                    android:background="@color/colorGreyBackground"
+                                    android:contentDescription="@string/tech_news_image" />
 
                             </android.support.v7.widget.CardView>
 
+                            <!--Tech News Section TextView-->
                             <TextView
                                 android:id="@+id/tech_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"
-                                android:text="Technology"
-                                android:textColor="#3F51B5"
+                                android:textSize="@dimen/minimal_text_size"
+                                android:text="@string/technology"
+                                android:textColor="@color/colorBlue"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginLeft="16dp"
                                 android:layout_marginBottom="8dp"/>
 
+                            <!--Tech News Headline TextView-->
                             <TextView
                                 android:id="@+id/tech_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Headline for the news for users to\n see and know"
-                                android:layout_marginLeft="16dp"/>
+                                android:text="@string/news_headline"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="16dp">
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
+                                <!--Tech News Posted Time-->
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:text="30 minutes ago"
+                                    android:text="@string/_30_minutes_ago"
                                     android:fontFamily="sans-serif-light"
-                                    android:textSize="12sp"/>
+                                    android:textSize="@dimen/minimal_text_size"/>
 
 
                                 <ImageView
@@ -203,9 +216,9 @@
                                     android:src="@drawable/ic_more_vert_black_24dp"/>
                             </RelativeLayout>
                         </LinearLayout>
-                        <!--   End of Tech news   -->
+                        <!--   End of Tech News   -->
 
-                        <!--   Beginning of Sports news   -->
+                        <!--   Beginning of Sports News   -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -213,53 +226,59 @@
                             android:layout_margin="8dp"
                             android:gravity="center">
 
+                            <!--Sports News CardView-->
                             <android.support.v7.widget.CardView
                                 android:layout_width="200dp"
                                 android:layout_height="200dp"
                                 app:cardCornerRadius="4dp"
                                 app:cardElevation="@dimen/elevation">
 
+                                <!--Sports News ImageView-->
                                 <ImageView
                                     android:id="@+id/sports_headline_img"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
                                     android:scaleType="centerCrop"
-                                    android:background="@color/colorPrimary"/>
+                                    android:background="@color/colorPrimary"
+                                    android:contentDescription="@string/sports_image" />
 
                             </android.support.v7.widget.CardView>
 
+                            <!--Sports News Section TextView-->
                             <TextView
                                 android:id="@+id/sports_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"
-                                android:text="Sports"
-                                android:textColor="#3F51B5"
+                                android:textSize="@dimen/minimal_text_size"
+                                android:text="@string/sports"
+                                android:textColor="@color/colorBlue"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
+                            <!--Sports News Headline TextView-->
                             <TextView
                                 android:id="@+id/sports_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Headline for the news for users to\n see and know"
-                                android:layout_marginLeft="16dp"/>
+                                android:text="@string/news_headline"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="16dp">
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
+                                <!--Sports News Posted Time-->
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:text="10 hours ago"
+                                    android:text="@string/_10_hours_ago"
                                     android:fontFamily="sans-serif-light"
-                                    android:textSize="12sp"/>
+                                    android:textSize="@dimen/minimal_text_size"/>
 
 
                                 <ImageView
@@ -279,6 +298,7 @@
                             android:layout_margin="8dp"
                             android:gravity="center">
 
+                            <!--Political News CardView-->
                             <android.support.v7.widget.CardView
                                 android:layout_width="200dp"
                                 android:layout_height="200dp"
@@ -291,41 +311,45 @@
                                     android:layout_height="match_parent"
                                     android:adjustViewBounds="true"
                                     android:scaleType="centerCrop"
-                                    android:background="#b71c1c"/>
+                                    android:background="@color/colorDeepRed"
+                                    android:contentDescription="@string/politics_image" />
 
                             </android.support.v7.widget.CardView>
 
+                            <!--Political News Section TextView-->
                             <TextView
                                 android:id="@+id/political_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:textSize="12sp"
-                                android:text="Politics"
-                                android:textColor="#3F51B5"
+                                android:textSize="@dimen/minimal_text_size"
+                                android:text="@string/politics"
+                                android:textColor="@color/colorBlue"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
+                            <!--Political News Headline TextView-->
                             <TextView
                                 android:id="@+id/political_headline_txt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Headline for the news for users to\n see and know"
-                                android:layout_marginLeft="16dp"/>
+                                android:text="@string/news_headline"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="16dp">
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
+                                <!--Political News Posted Time-->
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:text="5 minutes ago"
+                                    android:text="@string/_5_minutes_ago"
                                     android:fontFamily="sans-serif-light"
-                                    android:textSize="12sp"/>
+                                    android:textSize="@dimen/minimal_text_size"/>
 
 
                                 <ImageView
@@ -337,23 +361,24 @@
                         </LinearLayout>
                         <!--   End of Political news   -->
 
-                        <!--   Beginning of View more news  -->
+                        <!--   Beginning of View All news  -->
                         <android.support.v7.widget.CardView
                             android:layout_width="200dp"
                             android:layout_height="250dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginRight="16dp"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
                             android:layout_marginBottom="8dp"
                             android:gravity="center"
                             app:cardCornerRadius="4dp"
                             app:cardElevation="@dimen/elevation">
 
+                            <!--View All News TextView-->
                             <TextView
                                 android:id="@+id/all_news"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="View All"
+                                android:text="@string/view_all"
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textSize="18sp"/>
@@ -364,6 +389,7 @@
                     </LinearLayout>
                 </HorizontalScrollView>
 
+                <!--READ MORE Button-->
                 <Button
                     android:id="@+id/read_more_news"
                     android:layout_width="150dp"
@@ -379,6 +405,7 @@
         </RelativeLayout>
     </ScrollView>
 
+    <!--Bottom Navigation Menu-->
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

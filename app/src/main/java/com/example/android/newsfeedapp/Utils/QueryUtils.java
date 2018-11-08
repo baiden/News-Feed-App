@@ -34,7 +34,7 @@ public class QueryUtils {
 
     }
 
-    /** Creates fetch earthquake data which passes in the url and
+    /** Creates fetch news data which passes in the url and
      * Creates an http request, extracts data from the json response and parses them
      */
     public static List<NewsData> fetchNewsData(String requestUrl) {

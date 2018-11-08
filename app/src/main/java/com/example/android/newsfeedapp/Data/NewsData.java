@@ -9,19 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsData implements Parcelable {
-    private String titleOfStory; //Stores the name of the place's string ID
-    private String imageOfStoryResource; // Stores the side attraction's image ID
-    private String urlOfStory;
-    private String dateTimeOfStory;
-    private String sectionOfStory;
-    private List<String> reporterName;
-    private String bodyOfStory;
+    private String titleOfStory; //Stores the title of the news
+    private String imageOfStoryResource; // Stores the image of the news
+    private String urlOfStory; // Stores the url of the news
+    private String dateTimeOfStory; // Stores the date and time of the news
+    private String sectionOfStory; // Stores the section of the news
+    private List<String> reporterName; // Stores the author of the news
+    private String bodyOfStory; // Stores the body of the news
 
     /**
      * Creates a constructor of the Tour Places Data Class
      *
-     * @param inputTitleOfStory           is the string ID of the name of the side attraction
-     * @param inputImageOfStoryResourceID is the ID of the side attraction's image
+     * @param inputTitleOfStory is the title of the news
+     * @param inputImageOfStoryResourceID is the image of the news
+     * @param InputUrlOfStory is the url of the news
+     * @param InputDateTimeOfStory is the date and time of the news
+     * @param InputSectionOfStory is the section of the news
      */
     public NewsData(String inputTitleOfStory, String inputImageOfStoryResourceID, String InputUrlOfStory, String InputDateTimeOfStory, String InputSectionOfStory, List<String> InputReporterName, String InputBodyOfStory) {
         titleOfStory = inputTitleOfStory;
@@ -33,6 +36,11 @@ public class NewsData implements Parcelable {
         bodyOfStory = InputBodyOfStory;
     }
 
+    /**
+     * Passes the data contained to its destination
+     *
+     * @param source is the container of the passed data
+     */
     public NewsData(Parcel source) {
         titleOfStory = source.readString();
         imageOfStoryResource = source.readString();

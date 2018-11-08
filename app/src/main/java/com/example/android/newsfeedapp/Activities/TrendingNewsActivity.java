@@ -20,21 +20,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TrendingNewsActivity extends FragmentActivity {
-    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu;
+    @BindView(R.id.bottomNavigationView) BottomNavigationView bottomNavMenu; //Bottom Navigation View Menu
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_content);
-
-//        // Find the view pager that will allow the user to swipe between fragments
-//        ViewPager viewPager = (ViewPager) findViewById(R.id.trendingNews_viewpager);
-//
-//        // Create an adapter that knows which fragment should be shown on each page
-//        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), TrendingNewsActivity.this);
-//
-//        // Set the adapter onto the view pager
-//        viewPager.setAdapter(adapter);
 
         //Check that the activity is using the layout version with
         // the fragment_container FrameLayout
