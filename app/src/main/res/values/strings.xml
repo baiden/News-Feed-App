@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">News Feed App</string>
+    <string name="app_name">abreast</string>
 
     <string name="news_headline">Headline for the news for \nusers to see and know</string>
     <string name="name_of_place">NameOfPlace</string>
@@ -36,7 +36,7 @@
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order-by</string>
-    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_relevance_value</string>
+    <string name="order_by_default" translatable="false">@string/settings_order_by_relevance_value</string>
 
     <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
     <string name="settings_order_by_relevance_label">Relevance</string>
@@ -44,7 +44,10 @@
 
     <string name="settings_country_label">Country</string>
     <string name="settings_country_key" translatable="false">country</string>
-    <string name="settings_country_default" translatable="false">International</string>
+    <string name="country_default" translatable="false">International</string>
     <string name="no_news">No news found.</string>
     <string name="no_internet_connection">Check your internet connection</string>
+    <string name="newest">newest</string>
+    <string name="most_viewed_news">most viewed news</string>
+    <string name="trending_news">most viewed news</string>
 </resources>

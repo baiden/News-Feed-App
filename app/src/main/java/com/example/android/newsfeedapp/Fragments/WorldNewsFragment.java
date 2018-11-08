@@ -19,10 +19,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.newsfeedapp.Activities.BusinessNewsActivity;
 import com.example.android.newsfeedapp.Adapters.MainNewsAdapter;
@@ -49,8 +47,6 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
     private static final String showFieldsParameter = "show-fields";
     private static final String showFieldsValue = "thumbnail";
     private static final String nameOfAuthor = "contributor";
-    private static final int NEWS_REQUEST_ID = 1;
-
 
     /** Adapter for the list of earthquakes */
     private MainNewsAdapter mAdapter;
@@ -124,16 +120,6 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
-                NewsData newsData = mAdapter.getItem(position);
-                openMainNews.putExtra(DetailedWorldNewsFragment.NEWS_INFO, newsData);
-                startActivity(openMainNews);
-            }
-        });
-
-        newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 
                 Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
@@ -141,6 +127,19 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
                 Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
 
                 startActivity(intent);
+            }
+        });
+
+        newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                NewsData newsData = mAdapter.getItem(position);
+
+                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
+                openMainNews.putExtra(DetailedBusinessNewsFragment.NEWS_INFO, newsData);
+
+                startActivity(openMainNews);
 
                 return true;
             }
@@ -154,16 +153,9 @@ public class WorldNewsFragment extends Fragment implements LoaderManager.LoaderC
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
         // Create a new loader for the given URL
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-
-        String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
-
-        String queryValue = sharedPrefs.getString(getString(R.string.settings_country_key), getString(R.string.settings_country_default));
-
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, queryValue)
-                .appendQueryParameter(orderByParameter, orderBy)
+        builder.appendQueryParameter(queryParameter, getString(R.string.country_default))
+                .appendQueryParameter(orderByParameter, getString(R.string.order_by_default))
                 .appendQueryParameter("section","world")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter("page-size", "30")

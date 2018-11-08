@@ -69,7 +69,7 @@ public class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "the error is in creating url", e);
+            Log.e(LOG_TAG, "Error with creating URL ", e);
         }
         return url;
     }
@@ -155,7 +155,7 @@ public class QueryUtils {
                 JSONObject currentNews = news_array.getJSONObject(i);
 
                 // Extract out the name of section, title of the story, the date and url values
-                String name = currentNews.getString("sectionName");
+                String nameOfSection = currentNews.getString("sectionName");
                 String title = currentNews.getString("webTitle");
                 String date = currentNews.getString("webPublicationDate");
                 String url = currentNews.getString("webUrl");
@@ -176,7 +176,7 @@ public class QueryUtils {
                     contributor.add(contributor_name);
                 }
 
-                NewsData news = new NewsData(title, thumbnail, url, date, name, contributor,body);
+                NewsData news = new NewsData(title, thumbnail, url, date, nameOfSection, contributor,body);
                 newsArrayList.add(news);
 
             }

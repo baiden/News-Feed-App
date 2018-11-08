@@ -47,8 +47,6 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
     private static final String showFieldsParameter = "show-fields";
     private static final String showFieldsValue = "thumbnail";
     private static final String nameOfAuthor = "contributor";
-    private static final int NEWS_REQUEST_ID = 1;
-
 
     /** Adapter for the list of news stories */
     private MainNewsAdapter mAdapter;
@@ -120,10 +118,14 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
+
                 NewsData newsData = mAdapter.getItem(position);
-                openMainNews.putExtra(DetailedBusinessNewsFragment.NEWS_INFO, newsData);
-                startActivity(openMainNews);
+
+                Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
+
+                startActivity(intent);
             }
         });
 
@@ -132,11 +134,10 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 
-                Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
+                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
+                openMainNews.putExtra(DetailedBusinessNewsFragment.NEWS_INFO, newsData);
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
-
-                startActivity(intent);
+                startActivity(openMainNews);
 
                 return true;
             }
@@ -149,17 +150,9 @@ public class BusinessNewsFragment extends Fragment implements LoaderManager.Load
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
         // Create a new loader for the given URL
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-
-        String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
-
-        String queryValue = sharedPrefs.getString(getString(R.string.settings_country_key), getString(R.string.settings_country_default));
-        String query = queryValue.concat(" AND Sports");
-
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, query)
-                .appendQueryParameter(orderByParameter, orderBy)
+        builder.appendQueryParameter(queryParameter, getString(R.string.country_default))
+                .appendQueryParameter(orderByParameter, getString(R.string.newest))
                 .appendQueryParameter("section","business")
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter("page-size", "30")

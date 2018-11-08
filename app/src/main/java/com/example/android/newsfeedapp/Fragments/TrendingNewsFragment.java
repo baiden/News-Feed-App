@@ -117,16 +117,6 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
-                NewsData newsData = mAdapter.getItem(position);
-                openMainNews.putExtra(DetailedTrendingNewsFragment.NEWS_INFO, newsData);
-                startActivity(openMainNews);
-            }
-        });
-
-        newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsData newsData = mAdapter.getItem(position);
 
                 Uri uriOfNews = Uri.parse(newsData.getUrlOfStory());
@@ -134,6 +124,19 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
                 Intent intent = new Intent(Intent.ACTION_VIEW, uriOfNews);
 
                 startActivity(intent);
+            }
+        });
+
+        newsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                NewsData newsData = mAdapter.getItem(position);
+
+                Intent openMainNews = new Intent(getContext(), BusinessNewsActivity.class);
+                openMainNews.putExtra(DetailedBusinessNewsFragment.NEWS_INFO, newsData);
+
+                startActivity(openMainNews);
 
                 return true;
             }
@@ -144,10 +147,11 @@ public class TrendingNewsFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public Loader<List<NewsData>> onCreateLoader(int id, Bundle args) {
+        // Create a new loader for the given URL
 
         Uri.Builder builder = Uri.parse(GUARDIAN_REQUEST_URL).buildUpon();
-        builder.appendQueryParameter(queryParameter, "trending AND World")
-                .appendQueryParameter(orderByParameter, "newest")
+        builder.appendQueryParameter(queryParameter, getString(R.string.trending_news))
+                .appendQueryParameter(orderByParameter, getString(R.string.newest))
                 .appendQueryParameter(showFieldsParameter, "bodyText,thumbnail")
                 .appendQueryParameter(showMostViewed, "true")
                 .appendQueryParameter("page-size", "30")
