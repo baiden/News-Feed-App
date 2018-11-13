@@ -4,7 +4,7 @@ An Android Basics Nano degree course project from Udacity
 **Create an app which gives a user regularly-updated news from the Internet related to a particular topic, person, or location**
 Create a News Feed app which gives a user regularly-updated news from the Internet related to a particular topic, person, or location. The presentation of the information as well as the topic is up to you.
 
-
+**abreast** is a simple news feed app that keeps you informed with the latest international news.
 
 <a href="https://imgflip.com/gif/2mh3n2"><img src="https://i.imgflip.com/2mh3n2.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2mh3zz"><img src="https://i.imgflip.com/2mh3zz.gif" title="made at imgflip.com"/></a>
