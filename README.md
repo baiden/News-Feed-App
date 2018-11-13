@@ -14,6 +14,6 @@ Create a News Feed app which gives a user regularly-updated news from the Intern
 
 **Hint:** If you encounter an installation error, Click Build tab ---> Clean Project ---> Run it again :)
 
-**Android Tags:** *#linearlayout* *#relativelayout* *#imageview* *#textview* *#gridview* *#listview* *#customadapter*
+**Android Tags:** *#linearlayout* *#relativelayout* *#imageview* *#textview* *#listview* *#customadapter* *#loader* *#json* *#asynctask*
 
 **Apk:** https://drive.google.com/open?id=1RCCAakI2uJRilwbTY5zGRbQ5r_lUcfkT
