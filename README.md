@@ -8,7 +8,7 @@ Create a News Feed app which gives a user regularly-updated news from the Intern
 
 <a href="https://imgflip.com/gif/2mh3n2"><img src="https://i.imgflip.com/2mh3n2.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2mh3zz"><img src="https://i.imgflip.com/2mh3zz.gif" title="made at imgflip.com"/></a>
-----------------------------------------------------------------------------------------------------------------------
+**----------------------------------------------------------------------------------------------------------------------**
 <a href="https://imgflip.com/gif/2mh59z"><img src="https://i.imgflip.com/2mh59z.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/2mh6l6"><img src="https://i.imgflip.com/2mh6l6.gif" title="made at imgflip.com"/></a>
 
