@@ -1,4 +1,7 @@
 # News-Feed-App
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b3ff4806fb3443b687ec694fb13608e5)](https://www.codacy.com/app/alistairholmes95/devjournal?utm_source=alistair_holmes@bitbucket.org&amp;utm_medium=referral&amp;utm_content=alistair_holmes/devjournal&amp;utm_campaign=Badge_Grade)
+
 An Android Basics Nano degree course project from Udacity
 ### Project Description: 
 **Create an app which gives a user regularly-updated news from the Internet related to a particular topic, person, or location**
